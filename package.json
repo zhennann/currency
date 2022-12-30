@@ -1,6 +1,6 @@
 {
   "name": "@zhennann/currency",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "currency",
   "main": "dist/index.js",
   "publishConfig": {

@@ -45,9 +45,9 @@ function Currency(options) {
     options = {};
   }
 
-  var fixed = options.fixed || 2;
-  var exp = options.exp || fixed;
-  var zero = options.zero || fixed;
+  var fixed = options.fixed !== undefined ? options.fixed : 2;
+  var exp = options.exp !== undefined ? options.exp : fixed;
+  var zero = options.zero !== undefined ? options.zero : fixed;
   return {
     format: function format(value) {
       if (isNaN(value)) return value;
@@ -59,11 +59,11 @@ function Currency(options) {
       return Number((Number(value) * Math.pow(10, exp)).toFixed(0));
     },
     _trimZero: function _trimZero(str, zero) {
-      var indexZero = str.indexOf('.');
+      var indexZero = str.indexOf(".");
       if (indexZero === -1) return str;
 
       for (var index = str.length - 1; index > indexZero; index--) {
-        if (str[index] === '0' && index - indexZero > zero) {
+        if (str[index] === "0" && index - indexZero > zero) {
           str = str.substring(0, str.length - 1);
         } else {
           break;
