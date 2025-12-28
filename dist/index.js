@@ -20,7 +20,7 @@ export class Currency {
     }
     update(value) {
         if (isNaN(value))
-            return value;
+            return false;
         return Number((Number(value) * Math.pow(10, this.exp)).toFixed(0));
     }
 }
