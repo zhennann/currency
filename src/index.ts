@@ -25,8 +25,8 @@ export class Currency {
     return _trimZero(str, this.zero);
   }
 
-  update(value: number | string): number | undefined {
-    if (isNaN(value as any)) return;
+  update(value: number | string): number | false {
+    if (isNaN(value as any)) return false;
     return Number((Number(value) * Math.pow(10, this.exp)).toFixed(0));
   }
 }
